@@ -1,0 +1,125 @@
+
+
+[
+    {
+      "id": 1,
+      "name": "Johnson Wood",
+      "role": "Front-end Developer",
+      "email": "johnson@wood.com",
+      "status": "active",
+      "avatar": "https://randomuser.me/api/portraits/men/32.jpg"
+    },
+    {
+      "id": 2,
+      "name": "John Doe",
+      "role": "Team Lead",
+      "email": "john.doe@microsoft.com",
+      "status": "inactive",
+      "avatar": "https://randomuser.me/api/portraits/men/45.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Fakhar Naveed",
+      "role": "Volunteer",
+      "email": "fakhar@microsoft.com",
+      "status": "active",
+      "avatar": "https://randomuser.me/api/portraits/men/75.jpg"
+    },
+    {
+      "id": 4,
+      "name": "Alex Made",
+      "role": "Software Engineer",
+      "email": "alex.made@gmail.com",
+      "status": "active",
+      "avatar": "https://randomuser.me/api/portraits/men/64.jpg"
+    },
+    {
+      "id": 5,
+      "name": "Emma Stone",
+      "role": "UI/UX Designer",
+      "email": "emma.stone@designpro.com",
+      "status": "inactive",
+      "avatar": "https://randomuser.me/api/portraits/women/44.jpg"
+    },
+    {
+      "id": 6,
+      "name": "David Smith",
+      "role": "Backend Developer",
+      "email": "david.smith@backend.dev",
+      "status": "active",
+      "avatar": "https://randomuser.me/api/portraits/men/61.jpg"
+    },
+    {
+      "id": 7,
+      "name": "Sophia Brown",
+      "role": "Project Manager",
+      "email": "sophia.brown@pmconsult.com",
+      "status": "inactive",
+      "avatar": "https://randomuser.me/api/portraits/women/50.jpg"
+    },
+    {
+      "id": 8,
+      "name": "Michael Johnson",
+      "role": "DevOps Engineer",
+      "email": "michael.johnson@devops.co",
+      "status": "active",
+      "avatar": "https://randomuser.me/api/portraits/men/83.jpg"
+    },
+    {
+      "id": 9,
+      "name": "Olivia Williams",
+      "role": "Data Scientist",
+      "email": "olivia.williams@datainsight.com",
+      "status": "active",
+      "avatar": "https://randomuser.me/api/portraits/women/35.jpg"
+    },
+    {
+      "id": 10,
+      "name": "James Taylor",
+      "role": "Mobile App Developer",
+      "email": "james.taylor@appdev.io",
+      "status": "inactive",
+      "avatar": "https://randomuser.me/api/portraits/men/58.jpg"
+    },
+    {
+      "id": 11,
+      "name": "Lily Anderson",
+      "role": "Graphic Designer",
+      "email": "lily.anderson@creatives.com",
+      "status": "active",
+      "avatar": "https://randomuser.me/api/portraits/women/24.jpg"
+    },
+    {
+      "id": 12,
+      "name": "Ethan Thompson",
+      "role": "Cybersecurity Analyst",
+      "email": "ethan.thompson@cybersecure.com",
+      "status": "active",
+      "avatar": "https://randomuser.me/api/portraits/men/89.jpg"
+    },
+    {
+      "id": 13,
+      "name": "Chloe Martin",
+      "role": "Marketing Specialist",
+      "email": "chloe.martin@marketingpro.com",
+      "status": "inactive",
+      "avatar": "https://randomuser.me/api/portraits/women/30.jpg"
+    },
+    {
+      "id": 14,
+      "name": "Jack White",
+      "role": "Cloud Engineer",
+      "email": "jack.white@cloudpro.io",
+      "status": "active",
+      "avatar": "https://randomuser.me/api/portraits/men/99.jpg"
+    },
+    {
+      "id": 15,
+      "name": "Isabella Harris",
+      "role": "HR Manager",
+      "email": "isabella.harris@hrpro.com",
+      "status": "inactive",
+      "avatar": "https://randomuser.me/api/portraits/women/78.jpg"
+    }
+  ]
+  

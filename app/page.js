@@ -1,101 +1,101 @@
-import Image from "next/image";
+/* eslint-disable @next/next/no-img-element */
+"use client";
+import { useState, useEffect } from "react";
+import data from "./webdata/studentData.json";
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.js
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const [students, setStudents] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [filterStatus, setFilterStatus] = useState("all");
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  useEffect(() => {
+    setStudents(data);
+  }, []);
+
+  const filteredStudents = students.filter((student) => {
+    const matchesSearch = student.name.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesStatus = filterStatus === "all" || student.status === filterStatus;
+    return matchesSearch && matchesStatus;
+  });
+
+  return (
+    <div className="bg-gradient-to-r from-purple-200 via-pink-200 to-blue-200 min-h-screen p-6">
+      {/* Top bar with search and profile */}
+      <div className="flex flex-col sm:flex-row justify-between items-center mb-8">
+        {/* Search */}
+        <input
+          type="text"
+          placeholder="Search"
+          className="border rounded-lg px-4 py-2 w-full sm:w-64 outline-none mb-4 sm:mb-0"
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
+
+        {/* Profile Section */}
+        <div className="flex items-center space-x-4">
+          <span className="font-bold text-lg sm:text-sm">Priya Sharma</span>
+          <img
+            src={"https://randomuser.me/api/portraits/women/50.jpg"}
+            alt="profile"
+            className="w-14 h-14 sm:w-10 sm:h-10 rounded-full object-cover"
+          />
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+      </div>
+
+      {/* Filter buttons */}
+      <div className="flex justify-end space-x-4 mb-8">
+        <button
+          className={`px-6 py-2 font-semibold text-sm rounded-md ${
+            filterStatus === "all" ? "bg-purple-500 text-white" : "bg-gray-200"
+          }`}
+          onClick={() => setFilterStatus("all")}
         >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+          All
+        </button>
+        <button
+          className={`px-6 py-2 font-semibold text-sm rounded-md ${
+            filterStatus === "active" ? "bg-purple-500 text-white" : "bg-gray-200"
+          }`}
+          onClick={() => setFilterStatus("active")}
         >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+          Active
+        </button>
+        <button
+          className={`px-6 py-2 font-semibold text-sm rounded-md ${
+            filterStatus === "inactive" ? "bg-purple-500 text-white" : "bg-gray-200"
+          }`}
+          onClick={() => setFilterStatus("inactive")}
         >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+          Inactive
+        </button>
+      </div>
+
+      {/* Employee cards */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {filteredStudents.map((student) => (
+          <div key={student.id} className="bg-[#ffffff44] p-6 rounded-lg shadow-lg space-y-4">
+            <div className="flex items-center space-x-4">
+              <img
+                src={student.avatar}
+                alt={student.name}
+                width={50}
+                height={50}
+                className="rounded-full"
+              />
+              <div>
+                <h3 className="text-lg font-bold">{student.name}</h3>
+                <p className="text-gray-500">{student.role}</p>
+                <p className="text-gray-400">{student.email}</p>
+              </div>
+            </div>
+            <div className="flex justify-center space-x-6 ">
+              <button className="px-5 py-1 bg-[#ffffff2f] border-[1px] border-[black] text-[black] rounded-md">
+                Block
+              </button>
+              <button className="px-5 py-1 bg-[black] text-white rounded-md">Details</button>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
